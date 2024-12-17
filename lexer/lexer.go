@@ -9,7 +9,7 @@ type Lexer struct {
 	ch           byte //Current char under examination
 }
 
-func New(input string) *Lexer {
+func New(input string) *Lexer { //Go is strictly pass by value, not pass by reference so we pass pointers to copy a reference in so that the copy passed in is modified, and not a copy.
 	var l *Lexer = &Lexer{input: input} // Note: var a = struct{} creates a new struct, throwing & in front returns the address
 	l.readChar()
 	return l
